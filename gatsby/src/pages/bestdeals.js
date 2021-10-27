@@ -1,10 +1,10 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
-export default function IndexPage() {
+export default function Bestdeals() {
   return (
     <Layout>
-      <div>Hey!i am the homepage!!</div>
+      <div>Best Deals !!</div>
     </Layout>
   )
 }
