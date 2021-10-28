@@ -4,9 +4,9 @@ import Nav from './Navbar'
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <Nav />
-      {children}
+      <div className="flex-grow">{children}</div>
       <Footer />
     </div>
   )
