@@ -1,3 +1,7 @@
+let dotenv = require('dotenv')
+
+dotenv.config('.env')
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.yourdomain.tld',
@@ -8,10 +12,21 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/icon.png',
+      },
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: process.env.SANITY_PROJECTID,
+        dataset: process.env.SANITY_DATASET,
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
       },
     },
     'gatsby-plugin-mdx',

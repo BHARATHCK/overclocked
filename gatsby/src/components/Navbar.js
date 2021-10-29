@@ -9,16 +9,16 @@ export default function Nav() {
         <div className="flex flex-row space-x-4 items-center">
           <Link to="/">Home</Link>
 
-          <div class="bg-white flex items-center rounded-full shadow-xl">
+          <div className="bg-white flex items-center rounded-full shadow-xl">
             <input
-              class="rounded-l-full w-full py-2 px-6 text-gray-700 leading-tight focus:outline-none"
+              className="rounded-l-full w-full py-2 px-6 text-gray-700 leading-tight focus:outline-none"
               id="search"
               type="text"
               placeholder="Search"
             />
 
-            <div class="">
-              <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
+            <div className="">
+              <button className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
                 <SearchIcon className="h-5 w-5 text-white" />
               </button>
             </div>
