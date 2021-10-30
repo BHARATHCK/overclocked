@@ -27,16 +27,11 @@ export default {
       title: "Description",
       type: "text",
     },
-    {
-      name: "parents",
-      title: "Parent categories",
-      type: "array",
-      of: [
-        {
-          type: "reference",
-          to: [{ type: "category" }],
-        },
-      ],
-    },
   ],
+  preview: {
+    select: {
+      title: "title",
+      media: "logo",
+    },
+  },
 };

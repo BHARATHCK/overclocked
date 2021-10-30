@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link, StaticQuery } from 'gatsby'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import ProductCard from './ProductCard'
 
 export default function BestDeals({ data }) {
   return (
@@ -39,23 +39,7 @@ export default function BestDeals({ data }) {
           <div className="grid grid-cols-3 gap-4 p-10">
             {data.allSanityProduct.nodes.map((product, index) => (
               <Link to={`shop/${product._id}`} key={index + 1}>
-                <div className="flex flex-col shadow-lg rounded-lg" key={index}>
-                  <div className="p-4">
-                    <GatsbyImage
-                      image={getImage(
-                        product.defaultProductVariant.images[0].asset
-                      )}
-                      alt="product"
-                    />
-                    <div>
-                      <p>{product.title}</p>
-                    </div>
-                    <div className="flex justify-between">
-                      <p>{product.defaultProductVariant.price}</p>
-                      <p>{product.vendor.title}</p>
-                    </div>
-                  </div>
-                </div>
+                <ProductCard>{product}</ProductCard>
               </Link>
             ))}
           </div>
