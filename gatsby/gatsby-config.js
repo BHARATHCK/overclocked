@@ -26,7 +26,7 @@ module.exports = {
         projectId: process.env.SANITY_PROJECTID,
         dataset: process.env.SANITY_DATASET,
         watchMode: true,
-        token: process.env.SANITY_TOKEN,
+        token: process.env.SANITY_TOKEN_EDITOR,
       },
     },
     'gatsby-plugin-mdx',
