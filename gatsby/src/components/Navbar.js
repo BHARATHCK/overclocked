@@ -33,11 +33,14 @@ export default function Nav() {
             Sign In
           </button>
 
-          <div className=" rounded-2xl bg-gray-200 flex text-center justify-center items-center">
+          <div className=" rounded-2xl bg-gray-200 flex text-center justify-center items-center Header__summary snipcart-summary snipcart-checkout cursor-pointer">
             <button type="button">
               <ShoppingCartIcon className="h-10 w-10 p-2 text-blue-500" />
+              {/* <span className="snipcart-total-items"></span> */}
             </button>
-            <p className="p-2">1,400 INR</p>
+            <p className="p-2">
+              <span className="snipcart-total-price"></span>
+            </p>
           </div>
         </div>
       </div>

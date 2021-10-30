@@ -48,5 +48,12 @@ module.exports = {
       },
       __key: 'pages',
     },
+    {
+      resolve: 'gatsby-plugin-snipcart',
+      options: {
+        apiKey: process.env.SNIPCART_API_KEY,
+        autopop: true,
+      },
+    },
   ],
 }

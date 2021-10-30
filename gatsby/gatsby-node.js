@@ -21,8 +21,8 @@ exports.createPages = async function ({ actions, graphql }) {
             images {
               asset {
                 gatsbyImageData(
-                  width: 200
-                  height: 200
+                  width: 350
+                  height: 350
                   placeholder: BLURRED
                   formats: [AUTO]
                 )
