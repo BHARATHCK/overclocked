@@ -49,9 +49,7 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `)
 
-  console.log('GATSBY NODE : DATA --> ', data)
   data.allSanityProduct.nodes.forEach((node) => {
-    console.log('TITLE ---> ', node.title, ' ID --> ', node._id)
     const nodeId = node._id
     actions.createPage({
       path: `/shop/${nodeId}`,
@@ -60,7 +58,6 @@ exports.createPages = async function ({ actions, graphql }) {
     })
   })
 
-  console.log('GATSBY BROWSE NODE : DATA --> ', browseData)
   browseData.allSanityCategory.nodes.forEach((node) => {
     const categoryId = node._id
     actions.createPage({

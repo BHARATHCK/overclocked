@@ -3,8 +3,6 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 export default function Categories() {
-  const handleDragStart = (e) => e.preventDefault()
-
   const data = useStaticQuery(graphql`
     query Category {
       allSanityCategory {
@@ -24,7 +22,6 @@ export default function Categories() {
 
   return (
     <div>
-      {console.log('Data : ', data)}
       <p className="pb-10 font-semibold text-lg pt-10">Categories</p>
       <div className="flex flex-row space-x-2 overflow-x-auto">
         {data.allSanityCategory.nodes.map((category, index) => (

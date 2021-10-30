@@ -33,16 +33,16 @@ export default function BestDeals() {
     }
   `)
 
-  const allNews = data.allSanityProduct.nodes
+  const nodes = data.allSanityProduct.nodes
 
   // State for the list
-  const [list, setList] = useState([...allNews.slice(0, 10)])
+  const [list, setList] = useState([...nodes.slice(0, 10)])
 
   // State to trigger oad more
   const [loadMore, setLoadMore] = useState(false)
 
   // State of whether there is more to load
-  const [hasMore, setHasMore] = useState(allNews.length > 10)
+  const [hasMore, setHasMore] = useState(nodes.length > 10)
 
   // Load more button click
   const handleLoadMore = () => {
@@ -53,9 +53,9 @@ export default function BestDeals() {
   useEffect(() => {
     if (loadMore && hasMore) {
       const currentLength = list.length
-      const isMore = currentLength < allNews.length
+      const isMore = currentLength < nodes.length
       const nextResults = isMore
-        ? allNews.slice(currentLength, currentLength + 10)
+        ? nodes.slice(currentLength, currentLength + 10)
         : []
       setList([...list, ...nextResults])
       setLoadMore(false)
@@ -64,7 +64,7 @@ export default function BestDeals() {
 
   //Check if there is more
   useEffect(() => {
-    const isMore = list.length < allNews.length
+    const isMore = list.length < nodes.length
     setHasMore(isMore)
   }, [list]) //eslint-disable-line
 

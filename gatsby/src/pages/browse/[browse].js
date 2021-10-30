@@ -3,8 +3,6 @@ import React from 'react'
 import ProductCard from '../../components/ProductCard'
 
 export default function Browse({ pageContext, data }) {
-  console.log('Server Response : ', data)
-
   return (
     <div className="grid grid-cols-3 gap-4 p-10">
       {data.allSanityProduct.nodes.map((product, index) => (

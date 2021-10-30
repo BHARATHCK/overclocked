@@ -5,7 +5,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 export default function ShopProduct({ pageContext }) {
   const handleDragStart = (e) => e.preventDefault()
-  console.log('DATA : ', pageContext.data)
 
   const items = []
 
