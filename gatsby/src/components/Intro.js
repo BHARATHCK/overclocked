@@ -18,7 +18,9 @@ export default function Intro() {
             more.
           </div>
           <div>
-            <div className="bg-purple-700 w-40 h-20"></div>
+            <div className="">
+              <img src={`story1.png`} alt="Story 1" />
+            </div>
           </div>
         </div>
 
@@ -34,7 +36,7 @@ export default function Intro() {
             customer service ratings.
           </div>
           <div>
-            <div className="bg-purple-700 w-40 h-20"></div>
+            <img src={`story2.png`} alt="Story 1" />
           </div>
         </div>
 
@@ -47,7 +49,7 @@ export default function Intro() {
             South America, Asia Pacific and the Middle East.
           </div>
           <div>
-            <div className="bg-purple-700 w-40 h-20"></div>
+            <img src={`story3.png`} alt="Story 1" />
           </div>
         </div>
       </div>

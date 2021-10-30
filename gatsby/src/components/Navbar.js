@@ -26,12 +26,7 @@ export default function Nav() {
         </div>
 
         <div className="flex flex-row space-x-4 items-center">
-          <button
-            type="button"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Sign In
-          </button>
+          <div>Hello! 👋</div>
 
           <div className=" rounded-2xl bg-gray-200 flex text-center justify-center items-center Header__summary snipcart-summary snipcart-checkout cursor-pointer">
             <button type="button">
