@@ -14,7 +14,7 @@ export default function Browse({ pageContext, data }) {
   )
 }
 export const query = graphql`
-  query productFilter($categoryId: String!) {
+  query productFilter($categoryId: String) {
     allSanityProduct(filter: { category: { _id: { eq: $categoryId } } }) {
       nodes {
         _id

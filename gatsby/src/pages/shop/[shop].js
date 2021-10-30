@@ -6,9 +6,11 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 export default function ShopProduct({ pageContext }) {
   const handleDragStart = (e) => e.preventDefault()
 
+  console.log('PAGE CONTENT ************** : ', pageContext)
+
   const items = []
 
-  pageContext.data.defaultProductVariant.images.forEach((image) => {
+  pageContext?.data?.defaultProductVariant?.images.forEach((image) => {
     items.push(
       <GatsbyImage
         image={getImage(image.asset)}
@@ -35,12 +37,12 @@ export default function ShopProduct({ pageContext }) {
 
       <div className="flex flex-col space-y-6">
         <div>
-          <p className="font-bold">{pageContext.data.title}</p>
+          <p className="font-bold">{pageContext?.data?.title}</p>
           <p className="font-semibold">
             {' '}
-            &#36; {pageContext.data.defaultProductVariant.price}
+            &#36; {pageContext?.data?.defaultProductVariant?.price}
           </p>
-          <p>{pageContext.data.body.en[0].children[0].text}</p>
+          <p>{pageContext?.data?.body?.en[0]?.children[0]?.text}</p>
         </div>
 
         <div className="flex space-x-2">
@@ -48,12 +50,12 @@ export default function ShopProduct({ pageContext }) {
             <button
               type="button"
               className="Product__buy Product snipcart-add-item bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              data-item-id={pageContext.data._id}
-              data-item-price={pageContext.data.defaultProductVariant.price}
+              data-item-id={pageContext?.data?._id}
+              data-item-price={pageContext?.data?.defaultProductVariant?.price}
               data-item-image={
-                pageContext.data.defaultProductVariant.images[0].asset.url
+                pageContext?.data?.defaultProductVariant?.images[0]?.asset?.url
               }
-              data-item-name={pageContext.data.title}
+              data-item-name={pageContext?.data?.title}
               data-item-url={`/`}
             >
               Add to cart
