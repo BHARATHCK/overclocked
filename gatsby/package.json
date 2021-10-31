@@ -34,9 +34,10 @@
     "gatsby-transformer-sharp": "^4.0.0",
     "postcss": "^8.3.11",
     "react": "^17.0.1",
-    "react-alice-carousel": "^2.5.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "^2.2.17"
   }
 }

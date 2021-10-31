@@ -1,48 +1,53 @@
 import React from 'react'
-import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css'
+import Slider from 'react-slick'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import { graphql } from 'gatsby'
 
-export default function ShopProduct({ pageContext }) {
-  const handleDragStart = (e) => e.preventDefault()
+export default function ShopProduct({ data }) {
+  console.log('PAGE CONTENT ************** : ', data)
 
-  console.log('PAGE CONTENT ************** : ', pageContext)
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  }
 
-  const items = []
+  let assetList = []
 
-  pageContext?.data?.defaultProductVariant?.images.forEach((image) => {
-    items.push(
-      <GatsbyImage
-        image={getImage(image.asset)}
-        onDragStart={handleDragStart}
-        alt="product"
-        className="w-full"
-      ></GatsbyImage>
-    )
-  })
+  data = data?.allSanityProduct.nodes[0]
+
+  let image1 = getImage(data.defaultProductVariant.images[0].asset)
 
   return (
     <div className="flex flex-col space-y-6 lg:space-y-0 pt-10">
       {/* Images */}
       <div className="flex justify-center">
         <div className="max-w-md">
-          <AliceCarousel
-            mouseTracking
-            items={items}
-            autoWidth="false"
-            autoHeight="false"
-          />
+          <Slider {...settings}>
+            {data.defaultProductVariant.images.map((asset, index) => (
+              <div key={index}>
+                <GatsbyImage alt="test" image={getImage(asset.asset)} />
+              </div>
+            ))}
+            <div>
+              <h3>No Image</h3>
+            </div>
+          </Slider>
         </div>
       </div>
 
       <div className="flex flex-col space-y-6">
         <div>
-          <p className="font-bold">{pageContext?.data?.title}</p>
+          <p className="font-bold">{data?.title}</p>
           <p className="font-semibold">
             {' '}
-            &#36; {pageContext?.data?.defaultProductVariant?.price}
+            &#36; {data?.defaultProductVariant?.price}
           </p>
-          <p>{pageContext?.data?.body?.en[0]?.children[0]?.text}</p>
+          <p>{data?.body?.en[0]?.children[0]?.text}</p>
         </div>
 
         <div className="flex space-x-2">
@@ -50,12 +55,12 @@ export default function ShopProduct({ pageContext }) {
             <button
               type="button"
               className="Product__buy Product snipcart-add-item bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              data-item-id={pageContext?.data?._id}
-              data-item-price={pageContext?.data?.defaultProductVariant?.price}
+              data-item-id={data?._id}
+              data-item-price={data?.defaultProductVariant?.price}
               data-item-image={
-                pageContext?.data?.defaultProductVariant?.images[0]?.asset?.url
+                data?.defaultProductVariant?.images[0]?.asset?.url
               }
-              data-item-name={pageContext?.data?.title}
+              data-item-name={data?.title}
               data-item-url={`/`}
             >
               Add to cart
@@ -74,3 +79,34 @@ export default function ShopProduct({ pageContext }) {
     </div>
   )
 }
+
+export const query = graphql`
+  query productFilter($productId: String!) {
+    allSanityProduct(filter: { _id: { eq: $productId } }) {
+      nodes {
+        _id
+        title
+        body {
+          en {
+            children {
+              text
+            }
+          }
+        }
+        vendor {
+          _id
+          title
+        }
+        defaultProductVariant {
+          price
+          images {
+            asset {
+              gatsbyImageData
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`

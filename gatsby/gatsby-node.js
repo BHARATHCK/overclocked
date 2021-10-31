@@ -54,7 +54,7 @@ exports.createPages = async function ({ actions, graphql }) {
     actions.createPage({
       path: `/shop/${nodeId}`,
       component: require.resolve(`./src/pages/shop/[shop].js`),
-      context: { clientId: nodeId, data: node },
+      context: { productId: nodeId, data: node },
     })
   })
 
