@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { graphql } from 'gatsby'
 
-export default function ShopProduct({ data }) {
+export default function ShopProduct({ pageContext, data }) {
   console.log('PAGE CONTENT ************** : ', data)
 
   const settings = {
@@ -81,7 +81,7 @@ export default function ShopProduct({ data }) {
 }
 
 export const query = graphql`
-  query productFilter($productId: String!) {
+  query productFilter($productId: String) {
     allSanityProduct(filter: { _id: { eq: $productId } }) {
       nodes {
         _id

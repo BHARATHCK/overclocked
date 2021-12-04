@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { SearchIcon, ShoppingCartIcon } from '@heroicons/react/solid'
+import Search from './search'
+const searchIndices = [{ name: `products`, title: `products` }]
 
 export default function Nav() {
   return (
@@ -8,22 +10,9 @@ export default function Nav() {
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-row space-x-4 items-center">
           <Link to="/">Home</Link>
-
-          <div className="bg-white flex items-center rounded-full shadow-xl">
-            <input
-              className="rounded-l-full w-full py-2 px-6 text-gray-700 leading-tight focus:outline-none"
-              id="search"
-              type="text"
-              placeholder="Search"
-            />
-
-            <div className="">
-              <button className="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
-                <SearchIcon className="h-5 w-5 text-white" />
-              </button>
-            </div>
-          </div>
         </div>
+
+        <Search indices={searchIndices} />
 
         <div className="flex flex-row space-x-4 items-center">
           <div>Hello! 👋</div>
