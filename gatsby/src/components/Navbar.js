@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { SearchIcon, ShoppingCartIcon } from '@heroicons/react/solid'
+import { ShoppingCartIcon } from '@heroicons/react/solid'
 import Search from './search'
 const searchIndices = [{ name: `products`, title: `products` }]
 
