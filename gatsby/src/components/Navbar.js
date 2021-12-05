@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { ShoppingCartIcon } from '@heroicons/react/solid'
-import Search from './search'
+import Search from './search/index'
 const searchIndices = [{ name: `products`, title: `products` }]
 
 export default function Nav() {
